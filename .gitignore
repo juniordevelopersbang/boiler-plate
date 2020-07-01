@@ -1,7 +1,7 @@
 
 config/dev.js
 
-node_modules\
+node_modules
 node_modules/.bin/mime
 node_modules/.bin/mime.cmd
 node_modules/.bin/mime.ps1
