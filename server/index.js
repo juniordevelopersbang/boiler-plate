@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const config = require("./server/config/key");
-const { auth } = require("./server/middleware/auth");
+const config = require("./config/key");
+const { auth } = require("./middleware/auth");
 const { User } = require("./models/User");
 
 //application/x-www-form-urlencoded
@@ -26,7 +26,6 @@ mongoose
 
 app.get("/", (req, res) => res.send("Hello World!~~ "));
 
-app.get("/api/hello", (req, res) => res.send("Hello World!~~ "));
 
 app.post("/api/users/register", (req, res) => {
   //회원 가입 할떄 필요한 정보들을  client에서 가져오면
