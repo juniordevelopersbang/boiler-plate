@@ -1,6 +1,18 @@
 import React from "react";
+import Axios from "axios";
+import { withRouter } from "react-router-dom";
 
-function LandingPage() {
+function LandingPage(props) {
+  const onClickHandler = () => {
+    Axios.get("/api/users/logout").then((response) => {
+      if (response.data.success) {
+        props.history.push("/login");
+      } else {
+        alert("로그아웃 실패!");
+      }
+    });
+  };
+
   return (
     <div
       style={{
@@ -12,8 +24,9 @@ function LandingPage() {
       }}
     >
       <h2>시작 페이지</h2>
+      <button onClick={onClickHandler}>로그아웃</button>
     </div>
   );
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
